@@ -12,6 +12,8 @@
 }
 html {
     scroll-behavior: smooth;
+    zoom: 55%;
+    margin: auto;
 }
 
 .header{
@@ -41,6 +43,7 @@ html {
 }
 span{
     color: orangered;
+    font-weight: 900;
 }
 .navbar a{
     font-size: 18px;
@@ -56,6 +59,90 @@ span{
     border-bottom: 3px solid transparent;
     outline-color: orangered;
     text-decoration: underline;
+}
+/* Text Animation */
+.text-animation {
+    font-size: 34px;
+    font-weight: 700;
+    min-width: 280px;       /* prevents text wrapping */
+}
+
+.text-animation span {
+    position: relative;
+}
+
+/* Animation for Changing Words */
+.text-animation span::before{
+    content: 'Community Manager/Builder';
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after{
+    content: "";
+    position: absolute;
+    right: -8px;
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    width: calc(100% + 8px);
+    background-color: whitesmoke;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+/* Cursor Animation */
+@keyframes cursor {
+    to{
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+/* Changing Words Animation */
+@keyframes words {
+    0%, 
+    20%{
+        content: 'Community Manager';
+    }
+    21%, 
+    40% {
+        content: "2D Animator";
+    }
+    41%, 
+    60%{
+        content: "Video Creator";
+    }
+    61%, 
+    80% {
+        content: "Community Builder";
+    }
+    81%, 
+    100% {
+        content: "Web3 educator";
+    }
+}
+@keyframes typing {
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 8px);
+    }
 }
 .contact{
     padding: 10px 28px;
@@ -97,7 +184,9 @@ max-width: 800px;
     font-size: 42px;
 }
 .home-content h1{
+    font-weight: 500;
     font-size: 62px;
+    font-family: "poppins";
     line-height: 1.2;
 }
 @keyframes fadeInUp {
@@ -113,6 +202,7 @@ max-width: 800px;
 
 .home-content h1 {
     animation: fadeInUp 1s ease-out forwards;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .home-content p{
@@ -158,7 +248,7 @@ max-width: 800px;
     color: orangered;
 }
 .img-box img{
-    border-radius: 50%;
+    border-radius: 100%;
     width: 500px;
 }
 @keyframes zoomIn {
@@ -172,8 +262,10 @@ max-width: 800px;
     }
 }
 
-.img-box img {
+.img-box{
     animation: zoomIn 1.2s ease-out forwards;
+    touch-action: initial;
+    padding: auto;
 }
 
 ::-webkit-scrollbar{
@@ -195,9 +287,9 @@ max-width: 800px;
     gap: 10em;
     background: black;
 }
-.about-img img{
+.img-box{
     position: relative;
-    width: 550px;
+    width: 500px;
     box-shadow: 0 0 25px orangered,
                 0 0 50px orangered;
     border-radius: 50%;
@@ -228,6 +320,8 @@ max-width: 800px;
     margin: 1rem auto;
     text-align: center;
     margin-bottom: 3em;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .contact-form form .input-box{
     display: flex;
@@ -305,11 +399,16 @@ max-width: 800px;
 .services{
     background: var(--bg-color);
     color: white;
+    padding-right: 2%;
+    padding-left: 2%;
+    padding-bottom: 3%;
+    padding-top: 3%;
 }
 .services h2{
     text-align: center;
     font-size: 42px;
     margin-bottom: 4rem;
+    margin-top: 3rem;
     color: white;
 }
 .services-container{
